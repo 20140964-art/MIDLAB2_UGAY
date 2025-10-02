@@ -24,4 +24,8 @@ export class TaskService {
     }
     return total
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9c4e08d (first commit)

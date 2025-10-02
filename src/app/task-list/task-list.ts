@@ -8,11 +8,10 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './task-list.html',
-  styleUrl: './task-list.css'
+  styleUrls: ['./task-list.css'] 
 })
 export class TaskList {
-
-  tasks:any[] = [];
+  tasks: any[] = [];
 
   constructor(private functions: TaskService) {}
 
@@ -22,5 +21,9 @@ export class TaskList {
 
   get totalTasks() {
     return this.functions.getTotalTask();
+  }
+
+  onTaskStatusChange(task: any) {
+    console.log(`${task.name} is now ${task.completed ? 'Completed' : 'Pending'}`);
   }
 }
