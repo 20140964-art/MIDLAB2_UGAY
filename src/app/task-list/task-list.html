@@ -8,8 +8,17 @@
   <ul class="task-items">
     <li *ngFor="let task of tasks">
       <div class="task-item">
-        <p>{{ task.name }}</p>
-        <p>Status: {{ task.status }}</p>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="task.completed" 
+          (change)="onTaskStatusChange(task)" 
+        />
+
+        <p [ngClass]="{ 'completed': task.completed }">
+          {{ task.name }}
+        </p>
+
+        <p>Status: {{ task.completed ? 'Completed' : 'Pending' }}</p>
       </div>
     </li>
   </ul>
